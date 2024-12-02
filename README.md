@@ -1,4 +1,4 @@
-# Admin Assist - Project Management and Administrative Platform
+# Admin Assist -  Administrative Platform
 
 ## Overview
 Admin Assist is a web-based administrative platform designed to streamline the management of various office and project-related tasks. The platform allows users to manage employee profiles,  monitor office supplies. It aims to provide a simple, user-friendly interface for administrative assistants and office managers.
