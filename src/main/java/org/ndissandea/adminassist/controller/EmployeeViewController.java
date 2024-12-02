@@ -19,19 +19,13 @@ public class EmployeeViewController {
     public EmployeeViewController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-    // Dashboard Route
-    @GetMapping("/dashboard")
-    public String showDashboard() {
-        return "dashboard"; // Thymeleaf view for the dashboard
-    }
-
 
     // Display Employee List
     @GetMapping
     public String getAllEmployees(Model model) {
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees); // Pass employee data to Thymeleaf
-        return "employees_list"; // Name of the Thymeleaf HTML file
+        return "employees_profile"; // Name of the Thymeleaf HTML file
     }
 
     // Display Add Employee Form

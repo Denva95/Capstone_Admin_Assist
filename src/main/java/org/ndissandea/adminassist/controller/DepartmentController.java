@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-    @RestController
+  /*  @RestController
     @RequestMapping("/api/departments") // Base URL for department-related endpoints
     public class DepartmentController {
 
@@ -58,3 +58,4 @@ import java.util.List;
             }
         }
     }
+*/

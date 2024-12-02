@@ -2,56 +2,121 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        ul {
-            list-style-type: none;
+            margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
         }
 
-        ul li {
-            margin: 10px 0;
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
         }
 
-        table {
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .module-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .module-card {
+            text-decoration: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+            width: 200px;
+        }
+
+        .module-card:hover {
+            background-color: #eaeaea;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-<h1>Welcome to the Dashboard</h1>
-<div>
-    <h2>Employee Management</h2>
-    <p>Welcome to the Employee section. You can manage employee profiles below:</p>
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+<nav>
+    <!-- Navigation Menu -->
     <ul>
-        <li><a href="/employees">View Employee List</a></li>
-        <li><a href="/employees/add">Add New Employee</a></li>
+        <li><a href="/dashboard">Home</a></li>
+        <li><a href="/employees">Employee Profile</a></li>
+        <li><a href="/tasks">Task Management</a></li>
+        <li><a href="/inventory">Inventory</a></li>
     </ul>
-</div>
+</nav>
+
+<main>
+    <section>
+        <h2>Welcome to the Admin Dashboard</h2>
+        <p>Select a module to manage:</p>
+        <div class="module-links">
+            <a href="/employees" class="module-card">
+                <h3>Employee Profile</h3>
+                <p>Manage employee data, add, edit, delete, and view profiles.</p>
+            </a>
+            <a href="/tasks" class="module-card">
+                <h3>Task Management</h3>
+                <p>Create, assign, and track tasks.</p>
+            </a>
+            <a href="/inventory" class="module-card">
+                <h3>Inventory</h3>
+                <p>Track office supplies, add or remove items, and monitor stock.</p>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Admin Dashboard</p>
+</footer>
 </body>
 </html>

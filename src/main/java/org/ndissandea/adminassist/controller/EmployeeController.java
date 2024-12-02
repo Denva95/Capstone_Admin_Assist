@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+/*@RestController
 @RequestMapping("/api/employees") // Base URL for employee-related endpoints
 public class EmployeeController {
 
@@ -64,3 +64,4 @@ public class EmployeeController {
     }
 }
 
+*/
