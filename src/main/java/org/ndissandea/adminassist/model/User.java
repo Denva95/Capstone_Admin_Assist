@@ -27,6 +27,7 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+    private String role;
 
     // Many-to-many relationship with Role
     @ManyToMany(fetch = FetchType.EAGER) // EAGER to load roles with user
