@@ -1,0 +1,13 @@
+package org.ndissandea.adminassist;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AdminAssistApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

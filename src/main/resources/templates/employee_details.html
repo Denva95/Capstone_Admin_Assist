@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Employee Details</h1>
+<table>
+    <tr>
+        <th>ID:</th>
+        <td th:text="${employee.id}"></td>
+    </tr>
+    <tr>
+        <th>First Name:</th>
+        <td th:text="${employee.firstName}"></td>
+    </tr>
+    <tr>
+        <th>Last Name:</th>
+        <td th:text="${employee.lastName}"></td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td th:text="${employee.email}">john.doe@example.com</td>
+    </tr>
+    <tr>
+        <th>Position:</th>
+        <td th:text="${employee.position}">Manager</td>
+    </tr>
+    <tr>
+        <th>Holiday Balance:</th>
+        <td th:text="${employee.holidayBalance}"></td>
+    </tr>
+    <tr>
+        <th>Phone:</th>
+        <td th:text="${employee.phone}"></td>
+    </tr>
+    <tr>
+        <th>Salary:</th>
+        <td th:text="${employee.salary}"></td>
+    </tr>
+    <tr>
+        <th>Department:</th>
+        <td th:text="${employee.department != null ? employee.department.name : 'No Department Assigned'}"></td>
+    </tr>
+</table>
+<a href="/employees">Back to List</a>
+</body>
+</html>
