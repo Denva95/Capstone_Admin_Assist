@@ -46,7 +46,7 @@ public class User {
         this.email = email;
     }
 
-     Additional helper method for set
+     //Additional helper method for set
     public void addRole(Role role) {
         if (this.roles == null) {
             this.roles = new ArrayList<>();
