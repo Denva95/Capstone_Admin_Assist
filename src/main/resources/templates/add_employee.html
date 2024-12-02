@@ -2,37 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Add Employee</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container mt-5">
 <h1>Add New Employee</h1>
-<form action="/employees/add" method="post">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required><br><br>
+<form th:action="@{/employee/add}" th:object="${employee}" method="post">
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" id="firstName" th:field="*{firstName}" class="form-control" placeholder="Enter your first name" required>
+    </div>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required><br><br>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" id="lastName" th:field="*{lastName}" class="form-control" placeholder="Enter your last first name" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" id="email" th:field="*{email}" class="form-control" placeholder="Enter your email" required>
+    </div>
+    <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" id="position" th:field="*{position}" class="form-control" placeholder="position" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Start Date</label>
+        <input type="date" id="startDate" th:field="*{startDate}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="holidayBalance" class="form-label">Holiday</label>
+        <input type="number" id="holidayBalance" th:field="*{holidayBalance}" class="form-control" min="0" required>
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" id="phone" th:field="*{phone}" class="form-control" placeholder="phone number" required>
+    </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
 
-    <label for="position">Position:</label>
-    <input type="text" id="position" name="position" required><br><br>
+    <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="number" id="salary" th:field="*{salary}" class="form-control" placeholder="employee salary" required>
+    </div>
 
-    <label for="holidayBalance">Holiday Balance:</label>
-    <input type="number" id="holidayBalance" name="holidayBalance" min="0" required><br><br>
-
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone" required><br><br>
-
-    <label for="salary">Salary:</label>
-    <input type="number" id="salary" name="salary" step="0.01" required><br><br>
-
-    <label for="department">Department ID:</label>
-    <input type="number" id="department" name="department.id" required><br><br>
-
-    <button type="submit">Add Employee</button>
+    <div class="mb-3">
+        <label for="department" class="form-label">Department</label>
+        <select id="department" th:field="*{department.id}" class="form-select" required>
+            <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add employee</button>
 </form>
 <a href="/employees">Back to List</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

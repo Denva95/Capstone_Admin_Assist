@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Inventory Item</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Add New Inventory Item</h1>
+
+    <!-- Form to add a new inventory item -->
+    <form th:action="@{/inventory/add}" th:object="${inventory}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Enter item name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" id="quantity" th:field="*{quantity}" class="form-control" placeholder="Enter item quantity" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select id="status" th:field="*{status}" class="form-select" required>
+                <option value="In Stock">In Stock</option>
+                <option value="Out of Stock">Out of Stock</option>
+                <option value="In Use">In Use</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" th:field="*{description}" class="form-control" placeholder="Enter item description" rows="4" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="assignTo" class="form-label">Assigned To</label>
+            <input type="text" id="assignTo" th:field="*{assignTo}" class="form-control" placeholder="Enter the person assigned to this item" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="addedDate" class="form-label">Date Added</label>
+            <input type="date" id="addedDate" th:field="*{addedDate}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select id="department" th:field="*{department.id}" class="form-select" required>
+                <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Item</button>
+        <a href="/inventory" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

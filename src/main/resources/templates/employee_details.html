@@ -2,48 +2,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Employee Details</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Employee Details</h1>
-<table>
-    <tr>
-        <th>ID:</th>
-        <td th:text="${employee.id}"></td>
-    </tr>
-    <tr>
-        <th>First Name:</th>
-        <td th:text="${employee.firstName}"></td>
-    </tr>
-    <tr>
-        <th>Last Name:</th>
-        <td th:text="${employee.lastName}"></td>
-    </tr>
-    <tr>
-        <th>Email:</th>
-        <td th:text="${employee.email}"></td>
-    </tr>
-    <tr>
-        <th>Position:</th>
-        <td th:text="${employee.position}"></td>
-    </tr>
-    <tr>
-        <th>Holiday Balance:</th>
-        <td th:text="${employee.holidayBalance}"></td>
-    </tr>
-    <tr>
-        <th>Phone:</th>
-        <td th:text="${employee.phone}"></td>
-    </tr>
-    <tr>
-        <th>Salary:</th>
-        <td th:text="${employee.salary}"></td>
-    </tr>
-    <tr>
-        <th>Department:</th>
-        <td th:text="${employee.department != null ? employee.department.name : 'No Department Assigned'}"></td>
-    </tr>
-</table>
-<a href="/employees">Back to List</a>
+<div class="container mt-5">
+    <h1 class="mb-4">Employee Details</h1>
+
+    <!-- Employee Details Table -->
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th scope="row">ID:</th>
+            <td th:text="${employee.id}">1</td>
+        </tr>
+        <tr>
+            <th scope="row">First Name:</th>
+            <td th:text="${employee.firstName}">John</td>
+        </tr>
+        <tr>
+            <th scope="row">Last Name:</th>
+            <td th:text="${employee.lastName}">Doe</td>
+        </tr>
+        <tr>
+            <th scope="row">Email:</th>
+            <td th:text="${employee.email}">john.doe@example.com</td>
+        </tr>
+        <tr>
+            <th scope="row">Position:</th>
+            <td th:text="${employee.position}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Start Date:</th>
+            <td th:text="${employee.startDate != null ? employee.startDate : 'Undefined'}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Holiday Balance:</th>
+            <td th:text="${employee.holidayBalance}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Phone:</th>
+            <td th:text="${employee.phone}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Salary:</th>
+            <td th:text="${employee.salary}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Department:</th>
+            <td th:text="${employee.department != null ? employee.department.name : 'No Department Assigned'}">IT</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Back to List Button -->
+    <a href="/employees" class="btn btn-secondary">Back to List</a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

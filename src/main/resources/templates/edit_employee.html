@@ -2,56 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit Employee</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Edit Employee</h1>
+<div class="container mt-5">
+    <h1>Edit Employee</h1>
 
-<!-- Form to edit employee details -->
-<form th:action="@{/employees/add}" th:object="${employee}" method="post">
-    <div>
-        <label for="id">ID:</label>
-        <input type="text" id="id" th:field="*{id}" readonly />
-    </div>
-    <div>
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" th:field="*{firstName}" required />
-    </div>
-    <div>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" th:field="*{lastName}" required />
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" th:field="*{email}" required />
-    </div>
-    <div>
-        <label for="position">Position:</label>
-        <input type="text" id="position" th:field="*{position}" required />
-    </div>
-    <div>
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" th:field="*{phone}" required />
-    </div>
-    <div>
-        <label for="salary">Salary:</label>
-        <input type="number" id="salary" th:field="*{salary}" required />
-    </div>
-    <div>
-        <label for="holidayBalance">Holiday Balance:</label>
-        <input type="number" id="holidayBalance" th:field="*{holidayBalance}"  />
-    </div>
-    <div>
-        <label for="department">Department:</label>
-        <select id="department" th:field="*{department}" >
-            <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}">IT</option>
-        </select>
-    </div>
-    <div>
-        <button type="submit">Save Changes</button>
-    </div>
-</form>
+    <!-- Edit Employee Form -->
+    <form th:action="@{/employee/edit/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+        <div class="mb-3">
+            <label for="id" class="form-label">ID</label>
+            <input type="text" id="id" th:field="*{id}" class="form-control" readonly />
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" id="firstName" th:field="*{firstName}" class="form-control" placeholder="Enter first name" required />
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" id="lastName" th:field="*{lastName}" class="form-control" placeholder="Enter last name" required />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control" placeholder="Enter email address" required />
+        </div>
+        <div class="mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" id="position" th:field="*{position}" class="form-control" placeholder="Enter position" required />
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" id="phone" th:field="*{phone}" class="form-control" placeholder="Enter phone number" required />
+        </div>
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" id="salary" th:field="*{salary}" class="form-control" placeholder="Enter salary" required />
+        </div>
+        <div class="mb-3">
+            <label for="holidayBalance" class="form-label">Holiday Balance</label>
+            <input type="number" id="holidayBalance" th:field="*{holidayBalance}" class="form-control" placeholder="Enter holiday balance" />
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select id="department" th:field="*{department.id}" class="form-select" required>
+                <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}">Select Department</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/employees" class="btn btn-secondary">Back to Employee List</a>
+    </form>
+</div>
 
-<a href="/employees">Back to Employee List</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,40 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Delete Employee</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Link to Bootstrap for styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Delete Employee</h1>
-<p>Are you sure you want to delete this employee?</p>
+<div class="container mt-5">
+    <h1 class="text-danger">Delete Employee</h1>
+    <p class="text-warning">Are you sure you want to delete this employee?</p>
 
-<!-- Display employee details -->
-<table>
-    <tr>
-        <th>ID:</th>
-        <td th:text="${employee.id}">1</td>
-    </tr>
-    <tr>
-        <th>First Name:</th>
-        <td th:text="${employee.firstName}">John</td>
-    </tr>
-    <tr>
-        <th>Last Name:</th>
-        <td th:text="${employee.lastName}">Doe</td>
-    </tr>
-    <tr>
-        <th>Email:</th>
-        <td th:text="${employee.email}">john.doe@example.com</td>
-    </tr>
-    <tr>
-        <th>Position:</th>
-        <td th:text="${employee.position}">Manager</td>
-    </tr>
-</table>
+    <!-- Display employee details in a table -->
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <td th:text="${employee.id}">1</td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td th:text="${employee.firstName}">John</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td th:text="${employee.lastName}">Doe</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${employee.email}">john.doe@example.com</td>
+        </tr>
+        <tr>
+            <th>Position</th>
+            <td th:text="${employee.position}">Manager</td>
+        </tr>
+    </table>
 
-<!-- Delete and cancel buttons -->
-<form th:action="@{/employees/delete/{id}(id=${employee.id})}" method="post">
-    <button type="submit" class="delete-btn">Delete</button>
-</form>
-<a href="/employees" class="cancel-btn">Cancel</a>
+    <!-- Delete and Cancel buttons -->
+    <div class="d-flex justify-content-between">
+        <form th:action="@{/employees/delete/{id}(id=${employee.id})}" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        <a href="/employees" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+
+<!-- Link to Bootstrap JavaScript (optional, for enhanced interactivity) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

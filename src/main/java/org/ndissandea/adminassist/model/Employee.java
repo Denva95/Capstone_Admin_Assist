@@ -1,10 +1,7 @@
 package org.ndissandea.adminassist.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString
+@AllArgsConstructor
 @Entity
 @Table (name = "employee")
 public class Employee {
@@ -32,6 +30,7 @@ public class Employee {
     private String phone;
     @Column(nullable = false)
     private double salary;
+    private String startDate;
 
     // Many Employees can belong to one Department
     @ManyToOne
@@ -40,7 +39,7 @@ public class Employee {
 
 
     // Parameterized Constructor
-    public Employee(long id, String firstName, String lastName, String email, String position, int holidayBalance, String phone, double salary, LocalDate startDate) {
+   /* public Employee(long id, String firstName, String lastName, String email, String position, int holidayBalance, String phone, double salary, LocalDate startDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,8 +48,11 @@ public class Employee {
         this.holidayBalance = holidayBalance;
         this.phone = phone;
         this.salary = salary;
+        this.startDate = startDate;
 
     }
+    */
+
 }
 
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/*@RestController
+@RestController
 @RequestMapping("/api/inventory")
 public class InventoryController {
 
@@ -46,4 +46,4 @@ public class InventoryController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-*/
+
