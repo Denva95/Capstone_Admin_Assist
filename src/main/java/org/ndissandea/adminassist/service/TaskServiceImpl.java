@@ -1,5 +1,6 @@
 package org.ndissandea.adminassist.service;
 
+import org.ndissandea.adminassist.exception.employeeNotFoundException;
 import org.ndissandea.adminassist.exception.taskNotFoundException;
 import org.ndissandea.adminassist.model.Task;
 import org.ndissandea.adminassist.repository.TaskRepository;
@@ -21,7 +22,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task add(Task task) {
+    public Task addTask(Task task) {
         logger.info("Adding a new task: {}", task);
         taskRepository.save(task);
 
@@ -29,13 +30,19 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> getTasks() {
+    public List<Task> getTasksList() {
         return taskRepository.findAll();
+    }
+
+    @Override
+    public Task getTaskById(long id) {
+        return taskRepository.findById(id)
+                .orElseThrow(()-> new taskNotFoundException("Missing Id"));
     }
 
 
     @Override
-    public Task update(Task task, long id) {
+    public Task updateTask(Task task, long id) {
         return taskRepository.findById(id).map(tm->{
             tm.setTaskName(task.getTaskName());
             tm.setTaskDescription(task.getTaskDescription());
@@ -48,7 +55,7 @@ public class TaskServiceImpl implements TaskService {
 
 
     @Override
-    public void remove(long id) {
+    public void removeTask(long id) {
         if(!taskRepository.existsById(id)){
             throw new taskNotFoundException("task does not exist");
         }
