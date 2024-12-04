@@ -56,7 +56,7 @@ public class TaskViewController {
         @PostMapping("/edit/{id}")
         public String updateTask(@PathVariable long id, @ModelAttribute("task") Task task, RedirectAttributes redirectAttributes) {
             taskService.updateTask(task, id);
-            redirectAttributes.addFlashAttribute("message", "Inventory item updated successfully!");
+            redirectAttributes.addFlashAttribute("message", "Task updated successfully!");
             return "redirect:/Task";  // Redirect to the task home
         }
 

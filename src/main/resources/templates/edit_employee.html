@@ -9,7 +9,7 @@
     <h1>Edit Employee</h1>
 
     <!-- Edit Employee Form -->
-    <form th:action="@{/employee/edit/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+    <form th:action="@{/employees/edit/{id}(id=${employee.id})}" th:object="${employee}" method="post">
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
             <input type="text" id="id" th:field="*{id}" class="form-control" readonly />
@@ -44,8 +44,11 @@
         </div>
         <div class="mb-3">
             <label for="department" class="form-label">Department</label>
-            <select id="department" th:field="*{department.id}" class="form-select" required>
-                <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}">Select Department</option>
+            <select id="department" th:field="*{department}" class="form-control" required>
+                <option value="" disabled selected>Select Department</option>
+                <option th:each="dept : ${department}"
+                        th:value="${dept.id}"
+                        th:text="${dept.name}"></option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Save Changes</button>

@@ -14,7 +14,7 @@
     </div>
 
     <!-- Employee Profiles Table -->
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">First Name</th>
@@ -27,7 +27,7 @@
         <tr th:each="employee : ${employees}">
             <td th:text="${employee.firstName}"></td>
             <td th:text="${employee.lastName}"></td>
-            <td th:text="${employee.department != null ? employee.department : 'No department'}"></td>
+            <td th:text="${employee.department != null && employee.department.name != null ? employee.department.name : 'No department'}"></td>
             <td>
                 <a th:href="@{'/employees/details/' + ${employee.id}}" class="btn btn-primary btn-sm">View</a>
                 <a th:href="@{'/employees/edit/' + ${employee.id}}" class="btn btn-warning btn-sm">Edit</a>

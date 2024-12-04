@@ -36,7 +36,7 @@
 
         <div class="mb-3">
             <label for="assignTo" class="form-label">Assigned To</label>
-            <input type="text" id="assignTo" th:field="*{assignTo}" class="form-control" placeholder="Enter the person assigned to this item" required>
+            <input type="text" id="assignTo" th:field="*{assignTo}" class="form-control" placeholder="Enter the person assigned to this item" >
         </div>
 
         <div class="mb-3">
@@ -46,9 +46,8 @@
 
         <div class="mb-3">
             <label for="department" class="form-label">Department</label>
-            <select id="department" th:field="*{department.id}" class="form-select" required>
-                <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
-            </select>
+            <input id="department" th:field="*{name}" class="form-select" required>
+
         </div>
 
         <button type="submit" class="btn btn-primary">Add Item</button>

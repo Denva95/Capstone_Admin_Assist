@@ -14,19 +14,19 @@
         <tbody>
         <tr>
             <th scope="row">ID:</th>
-            <td th:text="${employee.id}">1</td>
+            <td th:text="${employee.id}"></td>
         </tr>
         <tr>
             <th scope="row">First Name:</th>
-            <td th:text="${employee.firstName}">John</td>
+            <td th:text="${employee.firstName}"></td>
         </tr>
         <tr>
             <th scope="row">Last Name:</th>
-            <td th:text="${employee.lastName}">Doe</td>
+            <td th:text="${employee.lastName}"></td>
         </tr>
         <tr>
             <th scope="row">Email:</th>
-            <td th:text="${employee.email}">john.doe@example.com</td>
+            <td th:text="${employee.email}"></td>
         </tr>
         <tr>
             <th scope="row">Position:</th>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th scope="row">Start Date:</th>
-            <td th:text="${employee.startDate != null ? employee.startDate : 'Undefined'}"></td>
+            <td th:text="${employee.startDate != null ? employee.startDate : 'No date specified'}"></td>
         </tr>
         <tr>
             <th scope="row">Holiday Balance:</th>
@@ -50,8 +50,9 @@
         </tr>
         <tr>
             <th scope="row">Department:</th>
-            <td th:text="${employee.department != null ? employee.department.name : 'No Department Assigned'}">IT</td>
+            <td th:text="${employee.department != null ? employee.department : 'No Department Assigned'}"></td>
         </tr>
+
         </tbody>
     </table>
 

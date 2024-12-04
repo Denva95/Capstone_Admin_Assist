@@ -38,9 +38,11 @@ public class Employee {
     private Department department;
 
 
+
+
     // Parameterized Constructor
-   /* public Employee(long id, String firstName, String lastName, String email, String position, int holidayBalance, String phone, double salary, LocalDate startDate) {
-        this.id = id;
+    public Employee(String firstName, String lastName, String email, String position, int holidayBalance, String phone, double salary, String startDate) {
+       // this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -51,7 +53,7 @@ public class Employee {
         this.startDate = startDate;
 
     }
-    */
+
 
 }
 

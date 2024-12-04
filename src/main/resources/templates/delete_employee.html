@@ -12,26 +12,49 @@
 
     <!-- Display employee details in a table -->
     <table class="table table-bordered">
+        <tbody>
         <tr>
-            <th>ID</th>
-            <td th:text="${employee.id}">1</td>
+            <th scope="row">ID:</th>
+            <td th:text="${employee.id}"></td>
         </tr>
         <tr>
-            <th>First Name</th>
-            <td th:text="${employee.firstName}">John</td>
+            <th scope="row">First Name:</th>
+            <td th:text="${employee.firstName}"></td>
         </tr>
         <tr>
-            <th>Last Name</th>
-            <td th:text="${employee.lastName}">Doe</td>
+            <th scope="row">Last Name:</th>
+            <td th:text="${employee.lastName}"></td>
         </tr>
         <tr>
-            <th>Email</th>
-            <td th:text="${employee.email}">john.doe@example.com</td>
+            <th scope="row">Email:</th>
+            <td th:text="${employee.email}"></td>
         </tr>
         <tr>
-            <th>Position</th>
-            <td th:text="${employee.position}">Manager</td>
+            <th scope="row">Position:</th>
+            <td th:text="${employee.position}"></td>
         </tr>
+        <tr>
+            <th scope="row">Start Date:</th>
+            <td th:text="${employee.startDate != null ? employee.startDate : 'No date specified'}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Holiday Balance:</th>
+            <td th:text="${employee.holidayBalance}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Phone:</th>
+            <td th:text="${employee.phone}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Salary:</th>
+            <td th:text="${employee.salary}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Department:</th>
+            <td th:text="${employee.department != null ? employee.department : 'No Department Assigned'}"></td>
+        </tr>
+
+        </tbody>
     </table>
 
     <!-- Delete and Cancel buttons -->

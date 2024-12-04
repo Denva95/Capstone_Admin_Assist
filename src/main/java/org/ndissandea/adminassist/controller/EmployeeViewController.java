@@ -1,10 +1,13 @@
 package org.ndissandea.adminassist.controller;
 
+import jakarta.validation.Valid;
 import org.ndissandea.adminassist.model.Employee;
+import org.ndissandea.adminassist.service.DepartmentService;
 import org.ndissandea.adminassist.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +17,15 @@ import java.util.List;
 public class EmployeeViewController {
 
     private final EmployeeService employeeService;
+    private final DepartmentService departmentService;
 
     @Autowired
-    public EmployeeViewController(EmployeeService employeeService) {
+    public EmployeeViewController(EmployeeService employeeService, DepartmentService departmentService) {
         this.employeeService = employeeService;
+        this.departmentService = departmentService;
     }
+
+
 
     // Display Employee List
     @GetMapping
@@ -32,14 +39,18 @@ public class EmployeeViewController {
     @GetMapping("/add")
     public String showAddEmployeeForm(Model model) {
         model.addAttribute("employee", new Employee());
-        return "add_employee";
+        model.addAttribute("department", departmentService.getAllDepartments());
+        return "add_employee"; // Thymeleaf template
     }
 
     // Process Add Employee Form
     @PostMapping("/add")
-    public String addEmployee(@ModelAttribute("employee") Employee employee) {
-        employeeService.add(employee);
-        return "redirect:/employees"; // Redirect to the list page after adding
+    public String addEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            return "add_employee"; // Return to the form with errors
+        }
+        employeeService.add(employee); // Save the employee to the database
+        return "redirect:/employees"; // Redirect after successful submission
     }
 
     // Display Employee Details
@@ -54,6 +65,7 @@ public class EmployeeViewController {
     public String showEditEmployeeForm(@PathVariable ("id") long id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
         model.addAttribute("employee", employee);
+        model.addAttribute("department", departmentService.getAllDepartments());
         return "edit_employee";
     }
 
