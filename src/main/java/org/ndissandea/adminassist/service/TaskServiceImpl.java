@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 @Service
 public class TaskServiceImpl implements TaskService {
     private final TaskRepository taskRepository;
-    private static final Logger logger = LoggerFactory.getLogger(TaskServiceImpl.class);
     @Autowired
     public TaskServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
@@ -23,10 +22,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Task addTask(Task task) {
-        logger.info("Adding a new task: {}", task);
-        taskRepository.save(task);
 
-        return task;
+        return taskRepository.save(task);
     }
 
     @Override

@@ -42,7 +42,7 @@ public class InventoryController {
     public ResponseEntity<Void> deleteInventory(@PathVariable long id) {
         Inventory inventory = new Inventory();
         inventory.setId(id);  // Assuming Inventory has an id field
-        inventoryService.deleteInventory(inventory);
+        inventoryService.deleteInventory(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

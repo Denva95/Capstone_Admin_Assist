@@ -33,11 +33,11 @@ public class InventoryServiceImpl implements InventoryService {
     public Inventory updateInventory(Inventory inventory, long id) {
         return inventoryRepository.findById(id).map(in->{
             in.setName(inventory.getName());
-            in.setDescription(in.getDescription());
+            in.setDescription(inventory.getDescription());
             in.setStatus(inventory.getStatus());
-            in.setQuantity(in.getQuantity());
+            in.setQuantity(inventory.getQuantity());
             in.setAssignTo(inventory.getAssignTo());
-            in.setDepartment(in.getDepartment());
+            in.setDepartment(inventory.getDepartment());
             in.setAddedDate(inventory.getAddedDate());
             return inventoryRepository.save(in);
 
@@ -45,12 +45,18 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public void deleteInventory(Inventory inventory) {
-        if(!inventoryRepository.existsById(inventory.getId())) {
+    public void deleteInventory(long id) {
+        if(!inventoryRepository.existsById(id)) {
             throw new itemNotFound("Item not found");
 
         }
+        inventoryRepository.deleteById(id);
 
+    }
+
+    @Override
+    public Inventory getInventoryById(long id) {
+        return inventoryRepository.findById(id).orElseThrow(()->new itemNotFound("Item not found"));
     }
 }
 

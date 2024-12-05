@@ -16,13 +16,13 @@ public class Inventory {
     private long id;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    @Column
     private int quantity;
     @Column(nullable = false)
     private String status; //"In Stock", "Out of Stock", "In Use"
     @Column(nullable = false)
     private String description;
-    @Column(nullable = false)
+    @Column
     private String assignTo;
     @Column(nullable = false)
     private String addedDate;

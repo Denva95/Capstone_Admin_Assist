@@ -6,6 +6,7 @@ import org.ndissandea.adminassist.model.Employee;
 import org.ndissandea.adminassist.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -17,6 +18,7 @@ public class TestEmployees {
         private Employee emp;
         private Employee emp2;
 
+        @Transactional
         @BeforeEach
         void setUp() {
             // Create and save employee 1

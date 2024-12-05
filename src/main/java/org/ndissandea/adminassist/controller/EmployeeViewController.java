@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -45,11 +46,12 @@ public class EmployeeViewController {
 
     // Process Add Employee Form
     @PostMapping("/add")
-    public String addEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult result) {
+    public String addEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return "add_employee"; // Return to the form with errors
         }
         employeeService.add(employee); // Save the employee to the database
+        redirectAttributes.addFlashAttribute("message", "Employee added successfully!");
         return "redirect:/employees"; // Redirect after successful submission
     }
 
@@ -61,6 +63,7 @@ public class EmployeeViewController {
         return "employee_details"; // Name of the Thymeleaf HTML file for details
     }
 
+    //Display the specified employee
     @GetMapping("/edit/{id}")
     public String showEditEmployeeForm(@PathVariable ("id") long id, Model model) {
         Employee employee = employeeService.getEmployeeById(id);
@@ -70,8 +73,9 @@ public class EmployeeViewController {
     }
 
     @PostMapping("/edit/{id}")
-    public String updateEmployee(@PathVariable ("id")long id, @ModelAttribute("employee") Employee employee) {
+    public String updateEmployee(@PathVariable ("id")long id, @ModelAttribute("employee") Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.update(employee, id);
+        redirectAttributes.addFlashAttribute("message", "Successfully employee updated!");
         return "redirect:/employees";
     }
 
@@ -83,8 +87,9 @@ public class EmployeeViewController {
     }
 
     @PostMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable("id") long id) {
+    public String deleteEmployee(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
         employeeService.delete(id);
+        redirectAttributes.addFlashAttribute("message", "Employee deleted successfully!");
         return "redirect:/employees";
     }
 }

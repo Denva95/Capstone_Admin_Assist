@@ -44,10 +44,7 @@ public class DepartmentViewController {
     // Show form to edit an existing department
     @GetMapping("/edit/{id}")
     public String showEditDepartmentForm(@PathVariable long id, Model model) {
-        Department department = departmentService.getAllDepartments().stream()
-                .filter(i -> i.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Invalid department Id:" + id));
+        Department department = departmentService.getDepartment(id);
         model.addAttribute("department", department);
         return "edit_department";  // Thymeleaf template for editing department
     }

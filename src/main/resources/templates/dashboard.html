@@ -4,49 +4,62 @@
     <title>Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: white;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
+            background-color: #ffffff;
+            color: #171717;
             padding: 10px 20px;
             text-align: center;
+        }
+
+        nav {
+            width: 150px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            color: coral;
+            padding: 20px;
         }
 
         nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            background-color: #444;
-            overflow: hidden;
         }
 
         nav ul li {
-            float: left;
+            margin-bottom: 15px;
         }
 
         nav ul li a {
             display: block;
-            color: #fff;
+            color: #303232;
             text-decoration: none;
-            padding: 10px 20px;
-            text-align: center;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
         nav ul li a:hover {
-            background-color: #555;
+            background-color: #efebeb;
         }
 
         main {
+            margin-left: 270px; /* Space for the side menu */
             padding: 20px;
         }
 
         .module-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
             margin-top: 20px;
@@ -71,8 +84,8 @@
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #333;
-            color: #fff;
+            background-color: whitesmoke;
+            color: black;
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -81,7 +94,7 @@
 </head>
 <body>
 <header>
-    <h1>Admin Dashboard</h1>
+    <h1>Welcome to the Admin Dashboard</h1>
 </header>
 
 <nav>
@@ -89,33 +102,33 @@
     <ul>
         <li><a href="/dashboard">Home</a></li>
         <li><a href="/department">Department Management</a></li>
-        <li><a href="/employees">Employee Profile</a></li>
+        <li><a href="/employees">Employee Management</a></li>
+        <li><a href="/inventory">Inventory Management</a></li>
         <li><a href="/task">Task Management</a></li>
-        <li><a href="/inventory">Inventory</a></li>
+
     </ul>
 </nav>
 
 <main>
     <section>
-        <h2>Welcome to the Admin Dashboard</h2>
-        <p>Select a module to manage:</p>
         <div class="module-links">
-            <a href="/department" class="module-card">
+            <a href="/department" class="module-card" style="background-color: #6fe84a;">
                 <h3>Department</h3>
                 <p>Department service, add or remove department, and update department.</p>
             </a>
-            <a href="/employees" class="module-card">
+            <a href="/employees" class="module-card" style="background-color: #31e6d8;">
                 <h3>Employee Profile</h3>
                 <p>Manage employee data, add, edit, delete, and view profiles.</p>
             </a>
-            <a href="/task" class="module-card">
-                <h3>Task Management</h3>
-                <p>Create, assign, and track tasks.</p>
-            </a>
-            <a href="/inventory" class="module-card">
+            <a href="/inventory" class="module-card" style="background-color: #b47df6;">
                 <h3>Inventory</h3>
                 <p>Track office supplies, add or remove items, and monitor stock.</p>
             </a>
+            <a href="/task" class="module-card" style="background-color: #fda62d;">
+                <h3>Task Management</h3>
+                <p>Create, assign, and track tasks.</p>
+            </a>
+
         </div>
     </section>
 </main>

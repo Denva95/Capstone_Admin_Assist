@@ -50,7 +50,7 @@
         </tr>
         <tr>
             <th scope="row">Department:</th>
-            <td th:text="${employee.department != null ? employee.department : 'No Department Assigned'}"></td>
+            <td th:text="${employee.department != null ? employee.department.name : 'No Department Assigned'}"></td>
         </tr>
 
         </tbody>

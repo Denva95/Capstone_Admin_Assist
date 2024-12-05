@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Entity
+@AllArgsConstructor
 
 public class Task {
     @Id
@@ -20,15 +21,14 @@ public class Task {
     private String taskStatus;
     @Column(nullable = false)
     private String priority;
-    @Column(nullable = false)
-    private String assignedTo;
 
-    public Task(String taskName, String taskDescription, String taskStatus, String priority, String assignedTo) {
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
-        this.taskStatus = taskStatus;
-        this.priority = priority;
-        this.assignedTo = assignedTo;
-    }
+    private String dueDate;
+    private String addDate;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee assignedTo;
+
+
 
 }

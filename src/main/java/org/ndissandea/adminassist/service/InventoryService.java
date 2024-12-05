@@ -8,5 +8,6 @@ public interface InventoryService {
     public List<Inventory> getInventory();
     public Inventory addInventory(Inventory inventory);
     public Inventory updateInventory(Inventory inventory, long id);
-    public void deleteInventory(Inventory inventory);
+    public void deleteInventory(long id);
+    public Inventory getInventoryById(long id);
 }

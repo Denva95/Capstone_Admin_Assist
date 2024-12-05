@@ -34,9 +34,15 @@
             <textarea id="description" th:field="*{description}" class="form-control" placeholder="Enter item description" rows="4" required></textarea>
         </div>
 
-        <div class="mb-3">
-            <label for="assignTo" class="form-label">Assigned To</label>
-            <input type="text" id="assignTo" th:field="*{assignTo}" class="form-control" placeholder="Enter the person assigned to this item" >
+
+            <div class="mb-3">
+                <label for="assignTo" class="form-label">Assigned To</label>
+                <select id="assignTo" th:field="*{assignTo}" class="form-control">
+                    <option value="" >Select employee</option>
+                    <option th:each="employee : ${employee}"
+                            th:value="${employee.id}"
+                            th:text="${employee.firstName}"></option>
+                </select>
         </div>
 
         <div class="mb-3">
@@ -46,9 +52,14 @@
 
         <div class="mb-3">
             <label for="department" class="form-label">Department</label>
-            <input id="department" th:field="*{name}" class="form-select" required>
-
+            <select id="department" th:field="*{department}" class="form-control" >
+                <option value="" >Select Department</option>
+                <option th:each="department : ${department}"
+                        th:value="${department.id}"
+                        th:text="${department.name}"></option>
+            </select>
         </div>
+
 
         <button type="submit" class="btn btn-primary">Add Item</button>
         <a href="/inventory" class="btn btn-secondary">Cancel</a>
