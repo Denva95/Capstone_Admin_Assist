@@ -11,9 +11,9 @@
         }
 
         header {
-            background-color: #ffffff;
-            color: #171717;
-            padding: 10px 20px;
+            background-color: #c8cfe6;
+            color: #303030;
+            padding: 5px 20px;
             text-align: center;
         }
 
@@ -23,8 +23,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #ffffff;
-            color: coral;
+            background-color: #f3f5f8;
+            color: #303030;
             padding: 20px;
         }
 
@@ -40,7 +40,7 @@
 
         nav ul li a {
             display: block;
-            color: #303232;
+            color: #303030;
             text-decoration: none;
             font-size: 18px;
             padding: 10px 15px;
@@ -84,7 +84,7 @@
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: whitesmoke;
+            background-color: #c8cfe6;
             color: black;
             position: fixed;
             bottom: 0;
@@ -94,17 +94,22 @@
 </head>
 <body>
 <header>
-    <h1>Welcome to the Admin Dashboard</h1>
+    <h1 th:align="center" >ADMIN ASSIST</h1>
 </header>
+
+<h2 th:align="center">Welcome To Admin Dashboard</h2>
+
+<p th:align="center">The easy and professional way to handle your daily task!!</p>
+
 
 <nav>
     <!-- Navigation Menu -->
     <ul>
-        <li><a href="/dashboard">Home</a></li>
-        <li><a href="/department">Department Management</a></li>
-        <li><a href="/employees">Employee Management</a></li>
-        <li><a href="/inventory">Inventory Management</a></li>
-        <li><a href="/task">Task Management</a></li>
+        <li><a href="/dashboard" th:align="center">Home</a></li>
+        <li><a href="/department" th:align="center">Department Management</a></li>
+        <li><a href="/employees" th:align="center">Employee Management</a></li>
+        <li><a href="/inventory" th:align="center">Inventory Management</a></li>
+        <li><a href="/task" th:align="center">Task Management</a></li>
 
     </ul>
 </nav>
@@ -112,20 +117,20 @@
 <main>
     <section>
         <div class="module-links">
-            <a href="/department" class="module-card" style="background-color: #6fe84a;">
-                <h3>Department</h3>
+            <a href="/department" class="module-card" style="background-color: #86ec68;">
+                <h3>DEPARTMENT</h3>
                 <p>Department service, add or remove department, and update department.</p>
             </a>
-            <a href="/employees" class="module-card" style="background-color: #31e6d8;">
-                <h3>Employee Profile</h3>
+            <a href="/employees" class="module-card" style="background-color: #63dfd4;">
+                <h3>EMPLOYEES</h3>
                 <p>Manage employee data, add, edit, delete, and view profiles.</p>
             </a>
-            <a href="/inventory" class="module-card" style="background-color: #b47df6;">
-                <h3>Inventory</h3>
+            <a href="/inventory" class="module-card" style="background-color: #a987d3;">
+                <h3>INVENTORY</h3>
                 <p>Track office supplies, add or remove items, and monitor stock.</p>
             </a>
-            <a href="/task" class="module-card" style="background-color: #fda62d;">
-                <h3>Task Management</h3>
+            <a href="/task" class="module-card" style="background-color: #eae018;">
+                <h3>TASK</h3>
                 <p>Create, assign, and track tasks.</p>
             </a>
 
@@ -134,7 +139,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2024 Admin Dashboard</p>
+    <p>&copy; Admin Dashboard</p>
 </footer>
 </body>
 </html>

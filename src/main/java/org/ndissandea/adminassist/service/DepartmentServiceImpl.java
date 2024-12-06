@@ -1,7 +1,6 @@
 package org.ndissandea.adminassist.service;
 
-import org.ndissandea.adminassist.exception.departmentNotFoundException;
-import org.ndissandea.adminassist.exception.taskNotFoundException;
+import org.ndissandea.adminassist.exception.DepartmentNotFoundException;
 import org.ndissandea.adminassist.model.Department;
 import org.ndissandea.adminassist.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,13 @@ import java.util.List;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentRepository departmentRepository;
+    private EmployeeService employeeService;
+    private InventoryService inventoryService;
     @Autowired
-    public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
+    public DepartmentServiceImpl(DepartmentRepository departmentRepository, EmployeeService employeeService, InventoryService inventoryService) {
         this.departmentRepository = departmentRepository;
+        this.employeeService = employeeService;
+        this.inventoryService = inventoryService;
     }
 
 
@@ -43,7 +46,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void deleteDepartment(long id) {
         if(!departmentRepository.existsById(id)) {
-            throw new departmentNotFoundException("Department not found");
+            throw new DepartmentNotFoundException("Department not found");
 
         }
         departmentRepository.deleteById(id);
@@ -52,6 +55,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department getDepartment(long id) {
         return departmentRepository.findById(id)
-                .orElseThrow(()-> new departmentNotFoundException("Missing Id"));
+                .orElseThrow(()-> new DepartmentNotFoundException("Missing Id"));
     }
 }

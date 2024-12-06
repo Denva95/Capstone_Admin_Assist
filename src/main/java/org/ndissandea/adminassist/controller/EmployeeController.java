@@ -1,6 +1,6 @@
 package org.ndissandea.adminassist.controller;
 
-import org.ndissandea.adminassist.exception.employeeNotFoundException;
+import org.ndissandea.adminassist.exception.EmployeeNotFoundException;
 import org.ndissandea.adminassist.model.Employee;
 import org.ndissandea.adminassist.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +58,7 @@ public class EmployeeController {
         try {
             employeeService.delete(id);
             return ResponseEntity.ok("Employee deleted successfully.");
-        } catch (employeeNotFoundException ex) {
+        } catch (EmployeeNotFoundException ex) {
             return ResponseEntity.status(404).body(ex.getMessage());
         }
     }

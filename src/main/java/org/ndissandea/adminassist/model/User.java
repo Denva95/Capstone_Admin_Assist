@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @Entity
 @Table(name = "user")
@@ -27,17 +28,15 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
-    private String role;
 
-    // Many-to-many relationship with Role
-    @ManyToMany(fetch = FetchType.EAGER) // EAGER to load roles with user
+    @OneToMany(fetch = FetchType.EAGER) // EAGER to load roles with user
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles;
-
+         private List<Role> roles;
+/*
     // Constructor for creating a User
     public User(String userName, String password, List<Role> roles, String email) {
         this.userName = userName;
@@ -46,11 +45,6 @@ public class User {
         this.email = email;
     }
 
-     //Additional helper method for set
-    public void addRole(Role role) {
-        if (this.roles == null) {
-            this.roles = new ArrayList<>();
-        }
-        this.roles.add(role);
-    }
+ */
+
 }

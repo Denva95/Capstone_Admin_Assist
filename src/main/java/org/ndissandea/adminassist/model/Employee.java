@@ -1,11 +1,10 @@
 package org.ndissandea.adminassist.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +25,8 @@ public class Employee {
     @Column(nullable = false)
     private String position;
     private int holidayBalance = 0;
+    @NotBlank
+    @Pattern(regexp = "\\d{10,15}")
     @Column(nullable = false, length = 15)
     private String phone;
     @Column(nullable = false)

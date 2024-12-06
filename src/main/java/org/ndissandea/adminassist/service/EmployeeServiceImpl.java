@@ -1,6 +1,6 @@
 package org.ndissandea.adminassist.service;
 
-import org.ndissandea.adminassist.exception.employeeNotFoundException;
+import org.ndissandea.adminassist.exception.EmployeeNotFoundException;
 import org.ndissandea.adminassist.model.Employee;
 import org.ndissandea.adminassist.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmployeeById(long id) {
         return employeeRepository.findById(id)
-                .orElseThrow(()-> new employeeNotFoundException("Missing Id"));
+                .orElseThrow(()-> new EmployeeNotFoundException("Missing Id"));
     }
 
     @Override
@@ -58,7 +58,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void delete(long id) {
        if(!employeeRepository.existsById(id)) {
-           throw new employeeNotFoundException("Employee not found");
+           throw new EmployeeNotFoundException("Employee not found");
        }
        employeeRepository.deleteById(id);
     }

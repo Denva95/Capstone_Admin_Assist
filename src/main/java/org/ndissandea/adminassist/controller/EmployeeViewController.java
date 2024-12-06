@@ -46,10 +46,7 @@ public class EmployeeViewController {
 
     // Process Add Employee Form
     @PostMapping("/add")
-    public String addEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult result, RedirectAttributes redirectAttributes) {
-        if (result.hasErrors()) {
-            return "add_employee"; // Return to the form with errors
-        }
+    public String addEmployee(@ModelAttribute("employee") Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.add(employee); // Save the employee to the database
         redirectAttributes.addFlashAttribute("message", "Employee added successfully!");
         return "redirect:/employees"; // Redirect after successful submission

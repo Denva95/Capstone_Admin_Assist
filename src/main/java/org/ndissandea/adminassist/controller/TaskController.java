@@ -2,7 +2,7 @@ package org.ndissandea.adminassist.controller;
 
 import org.ndissandea.adminassist.model.Task;
 import org.ndissandea.adminassist.service.TaskService;
-import org.ndissandea.adminassist.exception.taskNotFoundException;
+import org.ndissandea.adminassist.exception.TaskNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +42,7 @@ public class TaskController {
                 .filter(task -> task.getId() == id)
                 .findFirst()
                 .map(task -> new ResponseEntity<>(task, HttpStatus.OK))
-                .orElseThrow(() -> new taskNotFoundException("Task with ID " + id + " not found"));
+                .orElseThrow(() -> new TaskNotFoundException("Task with ID " + id + " not found"));
     }
 
     // Update a task

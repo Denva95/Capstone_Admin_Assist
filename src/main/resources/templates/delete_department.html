@@ -7,16 +7,31 @@
 <body>
 <div class="container mt-5">
     <h1 class="text-danger">Delete Department</h1>
-    <p>Are you sure you want to delete the following department?</p>
-    <table class="table table-striped">
-        <tr><th>ID:</th><td th:text="${department.id}"></td></tr>
-        <tr><th>Name:</th><td th:text="${department.name}"></td></tr>
+
+    <!-- Flash messages -->
+    <div class="alert alert-success" th:if="${message}" th:text="${message}"></div>
+    <div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+    <p>To avoid unsafe deletion, ensure that this department is not linked to Inventory Items or Employees before proceeding.</p>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th scope="row">ID:</th>
+            <td th:text="${department.id}"></td>
+        </tr>
+        <tr>
+            <th scope="row">Name:</th>
+            <td th:text="${department.name}"></td>
+        </tr>
+        </tbody>
     </table>
-    <form th:action="@{/department/delete/{id}(id=${department.id})}" method="post"
-          onsubmit="return confirm('Are you sure you want to delete this department?');">
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-    <a href="/department" class="btn btn-secondary">Cancel</a>
+
+    <div class="d-flex justify-content-between">
+        <form th:action="@{/delete/{id}(id=${department.id})}" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        <a href="/department" class="btn btn-secondary">Cancel</a>
+    </div>
 </div>
 </body>
-</html>
+   </html>

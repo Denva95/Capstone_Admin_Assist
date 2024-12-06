@@ -1,10 +1,7 @@
 package org.ndissandea.adminassist.controller;
 
-import org.ndissandea.adminassist.model.Department;
-import org.ndissandea.adminassist.model.Employee;
 import org.ndissandea.adminassist.model.Inventory;
 import org.ndissandea.adminassist.service.DepartmentService;
-import org.ndissandea.adminassist.service.EmployeeService;
 import org.ndissandea.adminassist.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,14 +16,12 @@ import java.util.List;
 public class InventoryViewController {
     private InventoryService inventoryService;
     private DepartmentService departmentService;
-    private EmployeeService employeeService;
     @Autowired
-    public InventoryViewController(InventoryService inventoryService, DepartmentService departmentService, EmployeeService employeeService) {
+    public InventoryViewController(InventoryService inventoryService, DepartmentService departmentService) {
         this.inventoryService = inventoryService;
         this.departmentService = departmentService;
-        this.employeeService = employeeService;
 
-    };
+    }
 
     // Show all inventory items
     @GetMapping
@@ -41,7 +36,6 @@ public class InventoryViewController {
     public String showAddInventoryForm(Model model) {
         model.addAttribute("inventory", new Inventory());  // Empty inventory object for the form
         model.addAttribute("department", departmentService.getAllDepartments());
-        model.addAttribute("employee", employeeService.getAllEmployees());
         return "add_item";  // Thymeleaf template for adding new inventory
     }
 
@@ -59,7 +53,6 @@ public class InventoryViewController {
         Inventory inventory = inventoryService.getInventoryById(id);
         model.addAttribute("inventory", inventory);
         model.addAttribute("department", departmentService.getAllDepartments());
-        model.addAttribute("employee", employeeService.getAllEmployees());
         return "edit_item";  // Thymeleaf template for editing inventory
     }
 

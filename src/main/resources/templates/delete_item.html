@@ -29,16 +29,16 @@
       <td th:text="${inventory.status}"></td>
     </tr>
     <tr>
+      <th scope="row">Assigned Date:</th>
+      <td th:text="${inventory.assignedDate != null ? inventory.assignedDate : 'No date specified'}"></td>
+    </tr>
+    <tr>
       <th scope="row">Assign to:</th>
       <td th:text="${inventory.assignTo != null ? inventory.assignTo : 'Not assigned'}"></td>
     </tr>
     <tr>
       <th scope="row">Add Date:</th>
       <td th:text="${inventory.addedDate != null ? inventory.addedDate : 'No date specified'}"></td>
-    </tr>
-    <tr>
-      <th scope="row">Department:</th>
-      <td th:text="${inventory.department != null ? inventory.department : 'No Department Assigned'}"></td>
     </tr>
 
     </tbody>

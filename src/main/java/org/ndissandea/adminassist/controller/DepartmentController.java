@@ -1,6 +1,6 @@
 package org.ndissandea.adminassist.controller;
 
-import org.ndissandea.adminassist.exception.departmentNotFoundException;
+import org.ndissandea.adminassist.exception.DepartmentNotFoundException;
 import org.ndissandea.adminassist.model.Department;
 import org.ndissandea.adminassist.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ import java.util.List;
             try {
                 departmentService.deleteDepartment(id);
                 return ResponseEntity.ok("Department deleted successfully.");
-            } catch (departmentNotFoundException ex) {
+            } catch (DepartmentNotFoundException ex) {
                 return ResponseEntity.status(404).body(ex.getMessage());
             }
         }

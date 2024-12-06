@@ -1,15 +1,12 @@
 package org.ndissandea.adminassist.service;
 
-import org.ndissandea.adminassist.exception.employeeNotFoundException;
-import org.ndissandea.adminassist.exception.taskNotFoundException;
+import org.ndissandea.adminassist.exception.TaskNotFoundException;
 import org.ndissandea.adminassist.model.Task;
 import org.ndissandea.adminassist.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @Service
@@ -34,7 +31,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getTaskById(long id) {
         return taskRepository.findById(id)
-                .orElseThrow(()-> new taskNotFoundException("Missing Id"));
+                .orElseThrow(()-> new TaskNotFoundException("Missing Id"));
     }
 
 
@@ -54,7 +51,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void removeTask(long id) {
         if(!taskRepository.existsById(id)){
-            throw new taskNotFoundException("task does not exist");
+            throw new TaskNotFoundException("task does not exist");
         }
         taskRepository.deleteById(id);
 

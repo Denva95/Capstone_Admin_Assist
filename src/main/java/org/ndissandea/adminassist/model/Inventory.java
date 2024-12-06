@@ -22,25 +22,15 @@ public class Inventory {
     private String status; //"In Stock", "Out of Stock", "In Use"
     @Column(nullable = false)
     private String description;
-    @Column
-    private String assignTo;
     @Column(nullable = false)
     private String addedDate;
+    private String AssignedDate;
 
     // Many Inventory items can belong to one Department
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "department_id")
-    private Department department;
+    private Department AssignTo;
 
-   /* public Inventory(String name, int quantity, String status, String description, String assignTo, String addedDate) {
-        this.name = name;
-        this.quantity = quantity;
-        this.status = status;
-        this.description = description;
-        this.assignTo = assignTo;
-        this.addedDate = addedDate;
-    }
-*/
 
 }
 

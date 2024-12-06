@@ -2,6 +2,7 @@ package org.ndissandea.adminassist.controller;
 
 import org.ndissandea.adminassist.model.Department;
 import org.ndissandea.adminassist.model.Employee;
+import org.ndissandea.adminassist.model.Inventory;
 import org.ndissandea.adminassist.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Controller
 @RequestMapping("/department")
@@ -59,14 +61,33 @@ public class DepartmentViewController {
     }
 
     // Delete a department
+    @GetMapping("/delete/{id}")
+    public String confirmDeleteDepartment(@PathVariable("id") long id, Model model, RedirectAttributes redirectAttributes) {
+        Department department = departmentService.getDepartment(id);
+        model.addAttribute("department", department);
+        if (department != null) {
+            return "delete_department";
+        }
+        redirectAttributes.addFlashAttribute("errorMessage", "This department cannot be deleted!.");
+        return "redirect:/department";
+    }
+
+
 
     @PostMapping("/delete/{id}")
     public String deleteDepartment(@PathVariable long id, RedirectAttributes redirectAttributes) {
         departmentService.deleteDepartment(id);
         redirectAttributes.addFlashAttribute("message", "Department deleted successfully!");
         return "redirect:/department";  // Redirect to department list
+
+
     }
 }
+
+
+
+
+
 
 
 
