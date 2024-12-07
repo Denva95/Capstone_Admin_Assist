@@ -1,6 +1,5 @@
 package org.ndissandea.adminassist.repository;
 
-import lombok.Getter;
 import org.ndissandea.adminassist.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

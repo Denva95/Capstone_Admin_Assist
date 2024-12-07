@@ -1,6 +1,6 @@
 package org.ndissandea.adminassist.service;
 
-import org.ndissandea.adminassist.exception.ItemNotFound;
+import org.ndissandea.adminassist.exception.ItemNotFoundException;
 import org.ndissandea.adminassist.model.Inventory;
 import org.ndissandea.adminassist.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public void deleteInventory(long id) {
         if(!inventoryRepository.existsById(id)) {
-            throw new ItemNotFound("Item not found");
+            throw new ItemNotFoundException("Item not found");
 
         }
         inventoryRepository.deleteById(id);
@@ -55,7 +55,7 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public Inventory getInventoryById(long id) {
-        return inventoryRepository.findById(id).orElseThrow(()->new ItemNotFound("Item not found"));
+        return inventoryRepository.findById(id).orElseThrow(()->new ItemNotFoundException("Item not found"));
     }
 }
 
