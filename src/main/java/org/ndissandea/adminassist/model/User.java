@@ -2,8 +2,10 @@ package org.ndissandea.adminassist.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -21,28 +23,12 @@ public class User {
     @Column(unique = true, nullable = false)
     private String userName;
 
-    @Column(nullable = false)
+    @NotEmpty(message = "Required")
     private String password;
 
     @Column(nullable = false, unique = true)
     private String email;
-
-    @OneToMany(fetch = FetchType.EAGER) // EAGER to load roles with user
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-         private List<Role> roles;
-/*
-    // Constructor for creating a User
-    public User(String userName, String password, List<Role> roles, String email) {
-        this.userName = userName;
-        this.password = password;
-        this.roles = roles;
-        this.email = email;
-    }
-
- */
+@Enumerated(EnumType.STRING)
+   private  Role role;
 
 }

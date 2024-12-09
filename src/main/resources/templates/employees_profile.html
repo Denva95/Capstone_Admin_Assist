@@ -10,10 +10,18 @@
     <div>
        <h6 class="text-center"> Create, View, Update, Delete a profile</h6>
     </div>
+    <!-- Display success message -->
+    <div th:if="${message}" class="alert alert-success">
+        <p th:text="${message}"></p>
+    </div>
 
     <!-- Back to Dashboard Button -->
     <div class="mb-3 text-start">
-        <a href="/dashboard" class="btn btn-primary btn-sm">Back to Dashboard</a>
+        <a href="/dashboard" class="btn btn-primary btn-sm">Back to Dashboard Admin</a>
+    </div>
+
+    <div class="mb-3 text-end">
+        <a href="/dashboard_assistant" class="btn btn-primary btn-sm">Back to Dashboard Assistant</a>
     </div>
 
     <!-- Employee Profiles Table -->

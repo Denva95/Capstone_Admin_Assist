@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {
-    private InventoryRepository inventoryRepository;
+    private final InventoryRepository inventoryRepository;
 
     @Autowired
     public InventoryServiceImpl(InventoryRepository inventoryRepository) {

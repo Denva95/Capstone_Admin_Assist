@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<!--Awesome library icon library to put icon inside my presentation card-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>Dashboard</title>
     <style>
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #b8e3c3;
+            background-color: #adc4e6;
         }
 
         header {
@@ -51,6 +53,7 @@
 
         nav ul li a:hover {
             background-color: #efebeb;
+            transform: scale(1);
         }
 
         main {
@@ -89,7 +92,7 @@
         }
 
 
-            footer {
+        footer {
             text-align: center;
             padding: 10px 0;
             background-color:  #fbf6f6;;
@@ -105,21 +108,22 @@
     <h1 th:align="center" >ADMIN ASSIST</h1>
 </header>
 
-<h2 th:align="center">Welcome To Admin Dashboard</h2>
+<h2 th:align="center">Welcome To Assistant Dashboard</h2>
 
-<p th:align="center">The easy and professional way to handle your daily task!!</p>
+<p th:align="center">The easy and professional way to assist your manager!!</p>
 
 
 <nav>
     <!-- Navigation Menu -->
     <ul>
-        <li><a href="/dashboard" th:align="center">Dashboard</a></li>
+        <li><a href="/dashboard_assistant" th:align="center">Dashboard</a></li>
         <li><a href="/home" th:align="center">Home</a></li>
         <li><a href="/department" th:align="center">Department Management</a></li>
         <li><a href="/employees" th:align="center">Employee Management</a></li>
         <li><a href="/inventory" th:align="center">Inventory Management</a></li>
         <li><a href="/task" th:align="center">Task Management</a></li>
-        <li><a href="/logout" th:align="center">Logout</a></li>
+
+
 
     </ul>
 </nav>
@@ -127,25 +131,25 @@
 <main>
     <section>
         <div class="module-links">
-            <a href="/department" class="module-card" style="background-color: #e7ede7;">
-                <i class="fas fa-building"></i> <!-- Department Icon -->
+            <a href="/department" class="module-card" style="background-color: #c1a0a0;">
+                <i class="fas fa-building"></i>
                 <h3>DEPARTMENT</h3>
                 <p>Department service, add or remove department, and update department.</p>
             </a>
-            <a href="/employees" class="module-card" style="background-color: #e3b468;">
+            <a href="/employees" class="module-card" style="background-color: #bcb877;">
                 <i class="fas fa-users"></i> <!-- Employees Icon -->
                 <h3>EMPLOYEES</h3>
                 <p>Manage employee data, add, edit, delete, and view profiles.</p>
             </a>
-            <a href="/inventory" class="module-card" style="background-color: #b88def;">
+            <a href="/inventory" class="module-card" style="background-color: #95a3d5;">
                 <i class="fas fa-box-open"></i> <!-- Inventory Icon -->
                 <h3>INVENTORY</h3>
                 <p>Track office supplies, add or remove items, and monitor stock.</p>
             </a>
-            <a href="/task" class="module-card" style="background-color: #80cfc1;">
+            <a href="/task" class="module-card" style="background-color: #c5ae8a;">
                 <i class="fas fa-tasks"></i> <!-- Task Icon -->
                 <h3>TASK</h3>
-                <p>Create, assign, and track tasks.</p>
+                <p>track tasks.</p>
             </a>
 
         </div>
@@ -153,7 +157,7 @@
 </main>
 
 <footer>
-    <p>Admin Dashboard</p>
+    <p>Assistant Dashboard</p>
 </footer>
 </body>
 </html>

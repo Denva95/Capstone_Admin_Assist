@@ -10,9 +10,9 @@ import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
-    private DepartmentRepository departmentRepository;
-    private EmployeeService employeeService;
-    private InventoryService inventoryService;
+    private final DepartmentRepository departmentRepository;
+    private final EmployeeService employeeService;
+    private final InventoryService inventoryService;
     @Autowired
     public DepartmentServiceImpl(DepartmentRepository departmentRepository, EmployeeService employeeService, InventoryService inventoryService) {
         this.departmentRepository = departmentRepository;

@@ -9,5 +9,10 @@ public class DashBoardController {
         public String showDashboard() {
             return "dashboard";
         }
+
+    @GetMapping("/dashboard_assistant")
+    public String showAssistantDashboard() {
+        return "dashboard_assistant";
+    }
     }
 
