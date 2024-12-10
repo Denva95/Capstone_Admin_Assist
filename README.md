@@ -22,7 +22,7 @@ user-friendly interface for administrative assistants and office managers.
 ### 🚀 Steps to Set Up Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Denva95/admin-assist.git
+   git clone https://github.com/Denva95/Capstone_Admin_Assist.git
 
 ## Description 🌍
 The application's entry point is the authentication page, where the user is asked to authenticate if already a user, or to register if not.
